@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tres Fuentes</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="modal-overlay" id="modal">
+        <div class="banner" id="banner">
+            <h1>Tutorial de las tres fuentes</h1>
+            <p>Bienvenido al juego, tienes que superar saltando obstaculos hasta llegar a recoger todas las fuentes</p>
+            <p>Los controles son Space y Flecha abajo</p>
+            <img src="img/space.png">
+            <img src="img/teclaAbajo.gif" id="imagenTecla">
+            <button class="btn modal-btn" id="botonPlay">Jugar</button>
+        </div>
+        
+    </header>
+
+    <div id="gameOverScreen" >
+        <p>GAME OVER</p>
+        <button class="btn modal-btn" id="jugarDeNuevo">Reiniciar partida</button>
+        <button class="btn modal-btn" id="returnMenu">Volver Menu</button>
+    </div>
+
+    <div id="board">
+        <div id="suelo"></div>
+        <div id="background"></div>
+        <div id="score">SCORE: 0</div>
+        <img src="img/Gif-murcielago.gif" alt="" id="vampiro">
+        <img src="img/Gif-murcielago.gif" alt=""  id="vampiroVertical">
+        <img src="img/fuente.webp" alt="" id="imagenFuente">
+        <div id="player"><div id="playerCollider"></div></div>
+        <div id="enemigo-container"></div>
+        
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

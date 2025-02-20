@@ -1,0 +1,309 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Bebas Neue', cursive;
+}
+
+#board {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 200%;
+    background-image: url('../img/fondo.jpg');
+    animation: moveBackground 10s linear infinite;
+}
+
+
+@keyframes moveBackground {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+#player {
+    position: absolute;
+    bottom: 40px;
+    left: 50px;
+    width: 100px;
+    height: 100px;
+    background-image: url('../img/gifchica.gif'); 
+    background-size: 100px 100px;
+    transition: bottom 0.5s;
+}
+
+#playerCollider {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    /*background-color: rgba(255, 0, 0, 0.397); */
+    animation: none; /* Inicialmente sin animacion */
+    
+}
+
+.playerJump {
+    animation: jump 0.5s forwards;
+}
+
+.playerAgacharse {
+    animation: agacharse 0.5s forwards;
+
+}
+
+@keyframes jump {
+    0% {
+        bottom: 100px; 
+    }
+    50% {
+        bottom: 250px;
+    }
+    75% {
+        bottom: 200px;
+    }
+    100% {
+        bottom: 40px; 
+    }
+}
+
+@keyframes agacharse {
+    0% { 
+        height: 100%;
+       
+    }
+    50% {
+        height: 50%;
+       
+    }
+    100% { 
+        height: 30%;
+        
+    }
+}
+
+#score {
+    font-style: oblique;
+    position: absolute;
+    font-size: 300%;
+    right: 8%;
+    color: #ffffff;
+}
+
+.enemigo {
+    position: absolute;
+    bottom: 50px; 
+    left: 3000px;
+    width: 90px;
+    height: 60px;
+    background-size: 100px 60px;
+    background-color: red;
+    background-image: url('../img/gif-rata.gif');
+    animation: respawn 5s linear infinite;
+}
+
+@keyframes respawn {
+    0% {
+        left: 3000px;
+    }
+    50% {
+        left: 2000px;
+    }
+    100% {
+        left: -40px;
+    }
+}
+
+.enemigosMapache{
+    position: absolute;
+    bottom: 158px; 
+    left: 3000px;
+    width: 100px;
+    height: 100px;
+    background-size: 100%;
+    background-image: url('../img/mapache.png');
+    background-color: red;
+    animation: respawnMapache 5s linear infinite;
+}
+
+@keyframes respawnMapache {
+    0% {
+        left: 3000px;
+    }
+    50% {
+        left: 1900px;
+    }
+    100% {
+        left: -400px;
+    }
+}
+#vampiro {
+    width: 100px;
+    height: 100px;
+    position: absolute; 
+    top: 50%; 
+    left: 100%; 
+    transform: scale(1);
+   animation: moveVampiro 8s linear infinite;
+}
+
+@keyframes moveVampiro {
+    0% {
+        left: 100%; 
+    }
+    50% {
+        left: 0%; 
+    }
+    100% {
+        left: -90%; 
+    }
+}
+
+#vampiroVertical {
+    width: 100px;
+    height: 100px;
+    position: absolute; 
+    top: -10%; 
+    left: 100%; 
+    transform: scale(1);
+    transform-origin: center;
+    background-color: red;
+    animation: moveVampiroVertical 11s linear infinite;
+}
+
+@keyframes moveVampiroVertical {
+    0% {
+        top: -10%;
+        left: 100%; 
+    }
+   
+    50% {
+        top: 50%;
+        left: 50%; 
+    }
+    100% {
+        top: 90%;
+        left: -110%; 
+    }
+}
+
+.banner {
+    background-image: url('../img/fondo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 25px;
+    text-align: center;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column; /* Cambiar a disposición en columna */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    color: #dadada;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 25px;
+}
+
+.banner h1{
+    text-transform: capitalize;
+    font-size: 55px;
+}
+.banner button{
+    margin-top: 20px;
+    padding:  10px 25px;
+    background-color: rgb(255, 153, 0);
+    color: white;
+    border:none;
+    border-radius: 5px;
+    text-transform: capitalize;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: 1s ease;
+}
+
+.banner button:hover{
+   border: 2px solid  rgb(255, 153, 0);
+   background-color: transparent;
+   color: rgb(255, 255, 255);
+}
+.banner img{
+    width: 20%;
+}
+#imagenTecla{
+    width: 5%;
+}
+.modal-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;  
+}
+
+#board {
+    display: none; /* Inicialmente ocultamos el tablero hasta que empiece el juego */
+}
+
+.modal-off {
+    display: none; /* Clase para ocultar el modal */
+}
+
+#imagenFuente {
+    display: none;
+    margin: 0 auto; 
+    justify-content: center; 
+    width: 10%; 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+}
+
+#gameOverScreen {
+    display: none; /* Oculta la pantalla inicialmente */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: rgb(255, 0, 0);
+    font-size: 5em;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.24);
+}
+
+#gameOverScreen button{
+        margin-top: 20px;
+        padding:  10px 25px;
+        background-color: rgb(255, 153, 0);
+        color: white;
+        border:none;
+        border-radius: 5px;
+        text-transform: capitalize;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: 1s ease;
+   
+}
+#gameOverScreen button:hover{
+    border: 2px solid  rgb(255, 153, 0);
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+ }
